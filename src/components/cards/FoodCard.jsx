@@ -1,5 +1,6 @@
 import React from 'react';
 import { ShoppingCart, Eye, Star, Flame } from 'lucide-react';
+import Link from 'next/link';
 
 const FoodCard = ({ food }) => {
   return (
@@ -50,7 +51,7 @@ const FoodCard = ({ food }) => {
           {/* View Details - Ghost Glass Button */}
           <button className="flex flex-1 items-center justify-center gap-2 rounded-2xl border border-white/20 bg-white/5 py-3 text-sm font-bold text-white transition-all hover:bg-white/10 hover:border-white/40 active:scale-95">
             <Eye size={18} />
-            <span>Details</span>
+            <Link href={`/foods/${food.id}`}>Details</Link>
           </button>
           
           {/* Add to Cart - Primary Yellow Button */}

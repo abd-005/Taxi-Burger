@@ -1,9 +1,8 @@
-'use-client'
 import FoodCard from '@/components/cards/FoodCard';
 import React from 'react';
 
 const getFoods = async () => {
-    const res = await fetch('https://taxi-kitchen-api.vercel.app/api/v1/foods/random');
+    const res = await fetch('https://taxi-kitchen-api.vercel.app/api/v1/foods/random',{cache:"no-store"});
     const data = await res.json();
     await new Promise((resolve)=> setTimeout(resolve, 2000)) // Delay 2s
     console.log(data);
