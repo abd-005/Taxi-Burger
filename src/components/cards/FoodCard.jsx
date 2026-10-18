@@ -49,10 +49,10 @@ const FoodCard = ({ food }) => {
         {/* Action Buttons Row */}
         <div className="mt-6 flex items-end gap-3">
           {/* View Details - Ghost Glass Button */}
-          <button className="flex flex-1 items-center justify-center gap-2 rounded-2xl border border-white/20 bg-white/5 py-3 text-sm font-bold text-white transition-all hover:bg-white/10 hover:border-white/40 active:scale-95">
+          <Link href={`/foods/${food.id}`} className='flex flex-1 items-center justify-center gap-2 rounded-2xl border border-white/20 bg-white/5 py-3 text-sm font-bold text-white transition-all hover:bg-white/10 hover:border-white/40 active:scale-95'>
             <Eye size={18} />
-            <Link href={`/foods/${food.id}`}>Details</Link>
-          </button>
+            Details
+          </Link>
           
           {/* Add to Cart - Primary Yellow Button */}
           <button className="flex h-12 w-12 items-center justify-center rounded-2xl bg-yellow-500 text-black shadow-[0_0_20px_rgba(234,179,8,0.4)] transition-all hover:scale-105 hover:bg-yellow-400 active:scale-95">
