@@ -31,9 +31,7 @@ export default function ReviewCard({ review }) {
       {/* Header */}
       <div className="flex items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-yellow-500 text-lg font-black text-black shadow-md">
-            {review.user ? review.user.charAt(0).toUpperCase() : 'G'}
-          </div>
+            <img src={review.photo} alt={review.user} className='relative flex h-12 w-12 items-center justify-center rounded-2xl bg-yellow-500 text-lg font-black text-black shadow-md' />
           <div>
             <h4 className="text-lg font-black tracking-tight text-white">
               {review.user || "Guest Foodie"}
