@@ -2,8 +2,8 @@
 
 // import FoodCard from '@/components/cards/FoodCard';
 import ReviewCard from '@/components/cards/ReviewCard';
-import ReviewSkeleton from '@/components/skeletons/ReviewCardSkeleton';
 import React, { useEffect, useState } from 'react';
+import ReviewLoading from './ReviewLoading';
 
 
 
@@ -14,11 +14,11 @@ const Review = () => {
         fetch(`https://taxi-kitchen-api.vercel.app/api/v1/reviews`)
         .then(res=>res.json())
         .then(data=>{
-            if (data) setReviews(data.reviews);
+            if (data) setReviews(data.reviews || []);
             setLoading(false)
         })
     },[])
-    if (loading) return <ReviewSkeleton />
+    if (loading) return <ReviewLoading />
     return (
         <div>
             <h2 className='text-4xl font-bold'>
