@@ -24,7 +24,7 @@ const Review = () => {
             <h2 className='text-4xl font-bold'>
                 Total <span className='text-yellow-500'>{reviews.length}</span> reviews Found
             </h2>
-            <div className='grid grid-cols-1  lg:grid-cols-3 gap-3 my-5'>
+            <div className='grid grid-cols-1  lg:grid-cols-4 gap-3 my-5'>
                 {reviews.map(review =>
                     <ReviewCard key={review.id} review={review}></ReviewCard>
                 )}
