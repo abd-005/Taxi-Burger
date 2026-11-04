@@ -1,6 +1,7 @@
 import React from 'react';
 import { ShoppingCart, Eye, Star, Flame } from 'lucide-react';
 import Link from 'next/link';
+import AddToCartBTN from '../buttons/AddToCartBTN';
 
 const FoodCard = ({ food }) => {
   return (
@@ -54,10 +55,7 @@ const FoodCard = ({ food }) => {
             Details
           </Link>
           
-          {/* Add to Cart - Primary Yellow Button */}
-          <button className="flex h-12 w-12 items-center justify-center rounded-2xl bg-yellow-500 text-black shadow-[0_0_20px_rgba(234,179,8,0.4)] transition-all hover:scale-105 hover:bg-yellow-400 active:scale-95">
-            <ShoppingCart size={22} strokeWidth={2.5} />
-          </button>
+          <AddToCartBTN></AddToCartBTN>
         </div>
       </div>
     </div>
