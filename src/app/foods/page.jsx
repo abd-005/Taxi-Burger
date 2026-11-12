@@ -2,10 +2,11 @@ import FoodCard from '@/components/cards/FoodCard';
 import React from 'react';
 import CartItems from './CartItems';
 import { Sparkles, ShoppingBag } from 'lucide-react';
+import InputSearch from '@/components/InputSearch';
 
-const getFoods = async () => {
+const getFoods = async (search) => {
     try {
-        const res = await fetch('https://taxi-kitchen-api.vercel.app/api/v1/foods/random', { cache: "no-store" });
+        const res = await fetch(`https://taxi-kitchen-api.vercel.app/api/v1/foods/random?search=${search}`, { cache: "no-store" });
         const data = await res.json();
         return data.foods || [];
     } catch (error) {
@@ -13,8 +14,9 @@ const getFoods = async () => {
     }
 }
 
-const Foods = async () => {
-    const foods = await getFoods();
+const Foods = async ({ searchParams }) => {
+    const {search = ""} = await searchParams;
+    const foods = await getFoods(search);
 
     return (
         <div className="min-h-screen bg-[#0a0a0a] px-3 py-12 text-white">
@@ -35,11 +37,13 @@ const Foods = async () => {
                     </p>
                 </div>
 
+                <div className="my-7"><InputSearch/></div>
+
                 {/* Main Content Layout */}
                 <div className="grid grid-cols-1  gap-8 sm:grid-cols-12">
                     
                     {/* Food Cards Grid (8 Columns on Large Screen) */}
-                    <div className="lg:col-span-9 sm:col-span-8">
+                    <div className="lg:col-span-8 sm:col-span-8">
                         {foods.length === 0 ? (
                             <div className="flex h-64 w-full items-center justify-center rounded-[2.5rem] border border-white/10 bg-white/5">
                                 <p className="text-white/40 font-bold">No foods found right now.</p>
@@ -54,7 +58,7 @@ const Foods = async () => {
                     </div>
 
                     {/* Cart Sidebar (4 Columns on Large Screen) */}
-                    <div className="lg:col-span-3 sm:col-span-4">
+                    <div className="lg:col-span-4 sm:col-span-4">
                         <div className="sticky top-28 rounded-[2.5rem] border border-white/20 bg-white/5 p-6 backdrop-blur-2xl shadow-2xl">
                             <div className="flex items-center gap-3 border-b border-white/10 pb-4">
                                 <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-yellow-500 text-black">
