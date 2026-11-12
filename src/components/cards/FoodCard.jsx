@@ -55,7 +55,7 @@ const FoodCard = ({ food }) => {
             Details
           </Link>
           
-          <AddToCartBTN></AddToCartBTN>
+          <AddToCartBTN food={food}></AddToCartBTN>
         </div>
       </div>
     </div>
