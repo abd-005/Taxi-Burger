@@ -3,10 +3,28 @@ import React from 'react';
 import CartItems from './CartItems';
 import { Sparkles, ShoppingBag } from 'lucide-react';
 import InputSearch from '@/components/InputSearch';
+import { getFoodRating } from '@/utils/foodRating';
+
+
+export async function generateStaticParams() {
+  try{
+    const data = await fetch('https://taxi-kitchen-api.vercel.app/api/v1/foods/random').then((res) => res.json())
+  const foods = data.foods || []
+    const bestSellerParams = foods.filter((food)=>getFoodRating(food.id).isBestSeller).map((food) => ({
+    id: String(food.id),
+  }))
+
+  return bestSellerParams;
+  } catch (error){
+    return []
+  }
+}
+
+
 
 const getFoods = async (search) => {
     try {
-        const res = await fetch(`https://taxi-kitchen-api.vercel.app/api/v1/foods/random?search=${search}`, { cache: "no-store" });
+        const res = await fetch(`https://taxi-kitchen-api.vercel.app/api/v1/foods/random?search=${search}`, { next: {revalidate: 10 } });
         const data = await res.json();
         return data.foods || [];
     } catch (error) {
