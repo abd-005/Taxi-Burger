@@ -1,17 +1,25 @@
 import React from 'react';
-import { ShoppingCart, Eye, Star, Flame } from 'lucide-react';
+import { Eye, Star, Flame } from 'lucide-react';
 import Link from 'next/link';
 import AddToCartBTN from '../buttons/AddToCartBTN';
 
 const FoodCard = ({ food }) => {
+  // Deterministic pseudo-random rating between 3.5 and 5.0 based on food.id
+  const rating = Number((3.5 + ((food.id * 7) % 16) / 10).toFixed(1));
+  const isBestSeller = rating >= 4.7;
+
   return (
     <div className="group relative w-80 overflow-hidden rounded-[2.5rem] border border-white/30 bg-white/10 p-5 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:bg-white/15 hover:shadow-yellow-500/10">
       
-      {/* Delicious Badge */}
-      <div className="absolute left-6 top-6 z-10 flex items-center gap-1 rounded-full bg-black/40 px-3 py-1 backdrop-blur-md">
-        <Flame size={14} className="text-yellow-500" />
-        <span className="text-[10px] font-bold uppercase tracking-tighter text-white">Best Seller</span>
-      </div>
+      {/* Conditional Best Seller Badge (only shows when rating >= 4.7) */}
+      {isBestSeller && (
+        <div className="absolute left-6 top-6 z-10 flex items-center gap-1 rounded-full border border-yellow-500/30 bg-black/50 px-3 py-1 backdrop-blur-md">
+          <Flame size={14} className="text-yellow-500" />
+          <span className="text-[10px] font-bold uppercase tracking-tighter text-white">
+            Best Seller
+          </span>
+        </div>
+      )}
 
       {/* Image Container */}
       <div className="relative h-56 w-full overflow-hidden rounded-[2rem]">
@@ -31,11 +39,11 @@ const FoodCard = ({ food }) => {
           </span>
           <div className="flex items-center gap-1">
             <Star size={14} fill="#eab308" className="text-yellow-500" />
-            <span className="text-xs font-bold text-white">4.9</span>
+            <span className="text-xs font-bold text-white">{rating}</span>
           </div>
         </div>
 
-        <h3 className="mt-1 text-2xl font-black tracking-tight text-white">
+        <h3 className="mt-1 truncate text-2xl font-black tracking-tight text-white">
           {food.title}
         </h3>
 
@@ -44,18 +52,22 @@ const FoodCard = ({ food }) => {
           <span className="text-2xl font-black text-yellow-500">
             ${(food.price / 100).toFixed(2)}
           </span>
-          <span className="text-xs text-white/40 line-through">$12.00</span>
+          <span className="text-xs text-white/40 line-through">
+            ${((food.price + 250) / 100).toFixed(2)}
+          </span>
         </div>
 
         {/* Action Buttons Row */}
         <div className="mt-6 flex items-end gap-3">
-          {/* View Details - Ghost Glass Button */}
-          <Link href={`/foods/${food.id}`} className='flex flex-1 items-center justify-center gap-2 rounded-2xl border border-white/20 bg-white/5 py-3 text-sm font-bold text-white transition-all hover:bg-white/10 hover:border-white/40 active:scale-95'>
+          <Link
+            href={`/foods/${food.id}`}
+            className="flex flex-1 items-center justify-center gap-2 rounded-2xl border border-white/20 bg-white/5 py-3 text-sm font-bold text-white transition-all hover:border-white/40 hover:bg-white/10 active:scale-95"
+          >
             <Eye size={18} />
             Details
           </Link>
-          
-          <AddToCartBTN food={food}></AddToCartBTN>
+
+          <AddToCartBTN food={food} />
         </div>
       </div>
     </div>
