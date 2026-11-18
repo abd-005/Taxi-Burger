@@ -1,14 +1,18 @@
 # Taxi Burger
 
-A responsive food-ordering web application built with **Next.js 16**, **React 19**, and **Tailwind CSS 4**. The project focuses on presenting food items, helping users discover menu options, and providing a smooth cart-oriented browsing experience.
+A responsive food-ordering web application built with **Next.js 16**, **React 19**, and **Tailwind CSS 4**. Taxi Burger helps users discover menu items, view item details, search the menu, and interact with a shopping cart through a modern web interface.
 
-> **Project status:** Frontend application under development. Backend integration and public production deployment are not yet part of the current release.
+<p align="center">
+  <a href="https://taxi-burger-7f9o.vercel.app/"><strong>View Live Application</strong></a>
+</p>
+
+> **Project status:** The frontend is deployed on Vercel. Backend integration and persistent server-side order processing remain future improvements.
 
 ## Overview
 
 Taxi Burger is a restaurant/food-ordering interface designed to make browsing a food menu straightforward. Users can explore food items, open item details through dynamic routes, search the available menu, and manage a cart during their browsing session.
 
-The current repository contains the frontend application. It should not be considered a complete end-to-end ordering platform until server-side order processing, persistent data, and the required backend services are integrated.
+The current repository contains the frontend application. It is a frontend project rather than a complete end-to-end ordering platform; server-side order processing and persistent backend services are not yet integrated.
 
 ## Main Features
 
@@ -55,9 +59,7 @@ The exact dependency versions are maintained in [package.json](./package.json).
 
 ### Prerequisites
 
-Make sure you have the following installed:
-
-- Node.js (use a current LTS release)
+- Node.js (current LTS release recommended)
 - npm (included with Node.js)
 - Git
 
@@ -78,7 +80,7 @@ npm install
 
 If your local configuration requires external API credentials or endpoints, create a `.env.local` file in the project root and add the variables required by the application.
 
-Do not commit `.env.local` or expose private API keys in client-side code. Refer to the project's source/configuration for the exact variable names; no placeholder variable names are prescribed here.
+Do not commit `.env.local` or expose private API keys in client-side code. Refer to the project's source/configuration for the exact variable names.
 
 ### 4. Start the development server
 
@@ -107,7 +109,7 @@ The project involves several practical frontend engineering concerns:
 - **Responsive UI:** Keeping the browsing experience usable across mobile and desktop layouts.
 - **Separation of concerns:** Keeping reusable UI components and application logic maintainable as the project grows.
 
-These are the main implementation areas and design considerations; they are not a claim that every edge case has already been fully solved.
+These are key implementation areas and design considerations, not a claim that every edge case has already been fully solved.
 
 ## Why These Technologies?
 
@@ -126,14 +128,14 @@ Taxi Burger aims to improve the basic food-browsing experience by bringing menu 
 - Integrate a backend for persistent menu, cart, and order data.
 - Implement secure order creation and server-side validation.
 - Add authentication if required by the final product scope.
-- Complete SEO work, including page-specific metadata, Open Graph metadata, canonical URLs, sitemap, and robots configuration.
+- Complete SEO improvements, including page-specific metadata, Open Graph metadata, canonical URLs, sitemap, and robots configuration.
 - Add automated tests for important user flows.
-- Deploy and verify a public production version.
+- Continue validating the deployed application across devices and browsers.
 
 ## Links
 
-- **Repository:** [Taxi Burger on GitHub](https://github.com/abd-005/Taxi-Burger)
-- **Live application:** Not available yet; production deployment is pending.
+- **Live application:** [https://taxi-burger-7f9o.vercel.app/](https://taxi-burger-7f9o.vercel.app/)
+- **GitHub repository:** [abd-005/Taxi-Burger](https://github.com/abd-005/Taxi-Burger)
 
 ## License
 
