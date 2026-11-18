@@ -1,36 +1,140 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Taxi Burger
+
+A responsive food-ordering web application built with **Next.js 16**, **React 19**, and **Tailwind CSS 4**. The project focuses on presenting food items, helping users discover menu options, and providing a smooth cart-oriented browsing experience.
+
+> **Project status:** Frontend application under development. Backend integration and public production deployment are not yet part of the current release.
+
+## Overview
+
+Taxi Burger is a restaurant/food-ordering interface designed to make browsing a food menu straightforward. Users can explore food items, open item details through dynamic routes, search the available menu, and manage a cart during their browsing session.
+
+The current repository contains the frontend application. It should not be considered a complete end-to-end ordering platform until server-side order processing, persistent data, and the required backend services are integrated.
+
+## Main Features
+
+- **Food discovery:** Browse food items presented through the application.
+- **Dynamic item routes:** Navigate to individual food-item pages using dynamic routing.
+- **Search:** Find menu items more easily.
+- **Cart interactions:** Add and manage selected items through client-side cart state.
+- **Reviews UI:** Display review-related information in the interface.
+- **Loading states:** Provide feedback while relevant content is loading.
+- **Responsive interface:** Built with utility-first styling to support different screen sizes.
+
+*Feature availability may depend on the current data/API configuration.*
+
+## Technology Stack
+
+| Technology | Purpose |
+|---|---|
+| Next.js 16 | React framework, routing, and application structure |
+| React 19 | Component-based user interface |
+| JavaScript | Application logic |
+| Tailwind CSS 4 | Responsive styling and UI development |
+| Lucide React | Icon components |
+| ESLint 9 | Code linting and quality checks |
+
+## Dependencies
+
+### Runtime dependencies
+
+- `next` — application framework
+- `react` — UI library
+- `react-dom` — React DOM rendering
+- `lucide-react` — icon library
+
+### Development dependencies
+
+- `tailwindcss` — utility-first CSS framework
+- `@tailwindcss/postcss` — Tailwind CSS PostCSS integration
+- `eslint` — static code analysis
+- `eslint-config-next` — Next.js ESLint configuration
+
+The exact dependency versions are maintained in [package.json](./package.json).
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+Make sure you have the following installed:
+
+- Node.js (use a current LTS release)
+- npm (included with Node.js)
+- Git
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/abd-005/Taxi-Burger.git
+cd Taxi-Burger
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Configure environment variables
+
+If your local configuration requires external API credentials or endpoints, create a `.env.local` file in the project root and add the variables required by the application.
+
+Do not commit `.env.local` or expose private API keys in client-side code. Refer to the project's source/configuration for the exact variable names; no placeholder variable names are prescribed here.
+
+### 4. Start the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Available scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Description |
+|---|---|
+| `npm run dev` | Start the local development server |
+| `npm run build` | Create an optimized production build |
+| `npm run start` | Run the production build locally |
+| `npm run lint` | Run ESLint |
 
-## Learn More
+## Engineering Considerations
 
-To learn more about Next.js, take a look at the following resources:
+The project involves several practical frontend engineering concerns:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Dynamic routing:** Organizing item-specific pages while keeping navigation predictable.
+- **Client-side state:** Managing cart interactions and keeping UI updates consistent.
+- **Asynchronous data:** Handling loading states when menu or review data is retrieved.
+- **Responsive UI:** Keeping the browsing experience usable across mobile and desktop layouts.
+- **Separation of concerns:** Keeping reusable UI components and application logic maintainable as the project grows.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+These are the main implementation areas and design considerations; they are not a claim that every edge case has already been fully solved.
 
-## Deploy on Vercel
+## Why These Technologies?
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Next.js:** Provides a structured React framework with file-based routing and production build tooling.
+- **React:** Makes it practical to build reusable, state-driven interface components.
+- **Tailwind CSS:** Supports consistent styling and responsive layouts without maintaining a large collection of custom CSS rules.
+- **JavaScript:** Keeps the project aligned with the language used across the current frontend codebase.
+- **ESLint:** Helps catch common code-quality issues during development.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Problems This Project Addresses
+
+Taxi Burger aims to improve the basic food-browsing experience by bringing menu discovery, item details, search, and cart interactions into one interface. It provides a frontend foundation that can later connect to backend services for persistent menus, user accounts, order placement, and order management.
+
+## Current Limitations & Future Improvements
+
+- Integrate a backend for persistent menu, cart, and order data.
+- Implement secure order creation and server-side validation.
+- Add authentication if required by the final product scope.
+- Complete SEO work, including page-specific metadata, Open Graph metadata, canonical URLs, sitemap, and robots configuration.
+- Add automated tests for important user flows.
+- Deploy and verify a public production version.
+
+## Links
+
+- **Repository:** [Taxi Burger on GitHub](https://github.com/abd-005/Taxi-Burger)
+- **Live application:** Not available yet; production deployment is pending.
+
+## License
+
+No license has currently been specified for this repository. All rights remain with the repository owner unless a license is added.
